@@ -17,7 +17,7 @@ class App extends Component { // 클래스 형태로 만들어진 컴포넌트�
         </div>
         <div>
           { // 조건부 렌더링을 할 때 if문 사용x. 사용하려면 즉시실행함수로 표현.
-            (function(){
+            (() =>{
               if(value === 1) return (<div>one</div>);
               if(value === 2) return (<div>two</div>);
             })()
