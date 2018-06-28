@@ -39,6 +39,7 @@ class Counter extends Component {
             <div>
                 <h1>카운터</h1>
                 <div>값: {this.state.number}</div>
+                {/* React는 JS와 달리 이벤트에 전달해주는 값이 함수여야 한다! 사용자가 만든 메소드를 호출하면 무한반복이 되버린다! */}
                 <button onClick = {this.handleIncrease}> + </button>
                 <button onClick = {this.handleDecrease}> - </button>
             </div>
