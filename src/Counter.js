@@ -6,12 +6,33 @@ class Counter extends Component {
     }
 
     // 또다른 state 정의 방법
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
-    //         number: 0
-    //     }
-    // }
+    constructor(props){
+        super(props);
+        console.log('constructor');
+    }
+
+    componentWillMount(){
+        console.log('componentWillMount (depreated)');
+    }
+
+    componentDidMount(){
+        console.log('componentDidMount');
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        // 5의 배수면 리렌터링 하지 않음
+        console.log('shouldComponentUpdate');
+        if(nextState.number % 5 == 0) return false;
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState){
+        console.log('componentWillUpdate');
+    }
+
+    componentDidUpdate(nextProps, prevState){
+        console.log('componentDidUpdate');
+    }
 
     handleIncrease = () => {
         // this.setState({
@@ -36,7 +57,7 @@ class Counter extends Component {
 
     render() {
         return(
-            <div>
+            <div> 
                 <h1>카운터</h1>
                 <div>값: {this.state.number}</div>
                 {/* React는 JS와 달리 이벤트에 전달해주는 값이 함수여야 한다! 사용자가 만든 메소드를 호출하면 무한반복이 되버린다! */}
