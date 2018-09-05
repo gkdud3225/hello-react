@@ -72,19 +72,18 @@ class Counter extends Component {
 
     render() {
         if(this.state.error) return (<h1>에러발생!</h1>);
+        console.log('render');
         return(
             <div> 
                 <h1>카운터</h1>
                 <div>값: {this.state.number}</div>
                 { this.state.number === 4 && <Problematic /> }
-                {/* React는 JS와 달리 이벤트에 전달해주는 값이 함수여야 한다! 사용자가 만든 메소드를 호출하면 무한반복이 되버린다! */}
+                {/* React는 JS와 달리 이벤트에 전달해주는 값이 함수여야 한다! onClick = {this.handleIncrease()} 와 같이 사용자가 만든 메소드를 호출하면 무한반복이 되버린다! */}
                 <button onClick = {this.handleIncrease}> + </button>
                 <button onClick = {this.handleDecrease}> - </button>
             </div>
         );
     }
 }
-
-
 
 export default Counter;
